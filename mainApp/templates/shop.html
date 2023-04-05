@@ -1,0 +1,55 @@
+{% extends 'index.html' %}}
+{% block title%}
+<title> Eshop |Shop </title>
+{% endblock %}
+{% block content %} 
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-lg-2 col-md-3 col-sm-6 col-12">
+            <h5 class="background text-light text center p-2">Menu</h5>
+            <div class="list-group">  
+                <h6 class="background text-light text center p-1">Maincategory</h6>
+                <a href="/shop/All/{{sc}}/{{br}}/" class="list-group-item list-group-item-action">All</a>
+                {%for i in maincategory %}
+                <a href="/shop/{{i.name}}/{{sc}}/{{br}}/" class="list-group-item list-group-item-action">{{i.name}}</a>
+                {% endfor %}
+            </div>
+            <div class="list-group">
+                <h6 class="background text-light text center p-1">Subcategory</h6>
+                <a href="/shop/{{mc}}/All/{{br}}/" class="list-group-item list-group-item-action">All</a>
+                {%for i in subcategory %}
+                <a href="/shop/{{mc}}/{{i.name}}/{{br}}/" class="list-group-item list-group-item-action">{{i.name}}</a>
+                {% endfor %}
+            </div>
+            <div class="list-group">
+                <h6 class="background text-light text center p-1">Brand</h6>
+                <a href="/shop/{{mc}}/{{sc}}/All/" class="list-group-item list-group-item-action">All</a>
+                {% for i in brand %}
+                <a href="/shop/{{mc}}/{{sc}}/{{i.name}}/" class="list-group-item list-group-item-action">{{i.name}}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-lg-10 col-md-9 col-sm-6 col-12">
+            <h5 class="background text-center text-light p-2">Shop Section</h5>
+            <div class="row">
+                {% for i in data %}
+                <div class="col-x1-2 col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                    <div class="card">
+                        <img src="{{i.pic1.url}}" height="250px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{i.name}}</h5>
+                            <p class="card-text">&#8377<del>{{i.baseprice}}</del><sub>{{i.finalprice}}</sub></p>
+                            <p class="card-text">Discount {{i.discount}}%</p>
+                            <p class="card-text"> {{i.color}} {{i.size}}</p>
+                            <a href="/single-product/{{i.id}}" class="btn background text-light w-100 btn-sm">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<title> Eshop |Shop </title>
+{% endblock %}

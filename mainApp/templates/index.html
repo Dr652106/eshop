@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    {% block title %}
+    <title>Eshop | Home</title>
+    {% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg background sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light" href="/">Eshop</a>
+            <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="bi bi-list text-light fs-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-light active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/shop/All/All/All">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/contact/">Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex w-100" role="search" action="/search/" method="post">
+                    {%csrf_token%}
+                    <input class="form-control me-2" name="search" type="search"
+                        placeholder="Enter Name ,Color,Maincategory etc to search.." aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{request.user.username}}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                            <li><a class="dropdown-item" href="/cart">Cart</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/logout">Log Out</a></li>
+                        </ul>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/login/">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {%block content%}
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+                aria-label="Slide 6"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6"
+                aria-label="Slide 7"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7"
+                aria-label="Slide 8"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8"
+                aria-label="Slide 9"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="9"
+                aria-label="Slide 10"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'image/pic1.jpg'%}" height="500px" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'image/pic2.jpg'%}" height="500px" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'image/pic3.jpg'%}" height="500px" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'image/pic4.jpg'%}" height="500px" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'image/pic5.jpg'%}" height="500px" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'image/pic6.jpg'%}" height="500px" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'image/pic7.jpg'%}" height="500px" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'image/pic8.jpg'%}" height="500px" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'image/pic9.jpg'%}" height="500px" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'image/pic10.jpg'%}" height="500px" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="banner-section mt-2">
+        <img src="{%static 'image/banner13.jpg'%}" width="100%" height="500px" alt="" srcset="">
+        <a href="/shop/Male/All/All" class="btn background text-light banner-btn" id="banner-btn1">Male</a>
+        <a href="/shop/Female/All/All" class="btn background text-light banner-btn" id="banner-btn2">Female</a>
+        <a href="/shop/Kids/All/All" class="btn background text-light banner-btn" id="banner-btn3">Kids</a>
+    </div>
+    <h5 class="background text-center text-light p-2 my-2">Latest Products Section</h5>
+    <div class="container-fluid">
+        <div class="row">
+            {% for i in data %}
+            <div class="col-x1-2 col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                <div class="card">
+                    <img src="{{i.pic1.url}}" height="250px" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.name}}</h5>
+                        <p class="card-text">&#8377<del>{{i.baseprice}}</del><sub>{{i.finalprice}}</sub></p>
+                        <p class="card-text">Discount {{i.discount}}%</p>
+                        <p class="card-text"> {{i.color}} {{i.size}}</p>
+                        <a href="/single-product/{{i.id}}" class="btn background text-light w-100 btn-sm">Add to
+                            Cart</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
+    <footer class=" background text-light text-center p-1">
+        <p> copyright@shop.com</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+</div>
+
+</html>

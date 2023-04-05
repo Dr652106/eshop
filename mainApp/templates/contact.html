@@ -1,0 +1,64 @@
+{% extends 'index.html'%}
+{% load static %}
+{% block title %}
+<title>Eshop | Contact Page</title>
+{% endblock %}
+{% block content %}
+<div class="container-fluid my-2">
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div class="background text-light text-center mb-2 p-2">
+                dr8481985@gmail.com
+            </div>
+            <div class="background text-light text-center mb-2 p-2">
+                8383081873
+            </div>
+            <div class="background text-light text-center mb-2 p-2">
+                Giri Marg Mandawali Delhi India
+            </div>
+            <div style="overflow:hidden;resize:none;max-width:100%;width:700px;height:470px;">
+                <div id="gmap-canvas" style="height:100%; width:100%;max-width:100%;"><iframe
+                        style="height:100%;width:100%;border:0;" frameborder="0"
+                        src="https://www.google.com/maps/embed/v1/place?q=Giri+Marg,+Fazalpur,+Mandawali,+Delhi&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+                </div><a class="google-map-html" rel="nofollow" href="https://www.bootstrapskins.com/themes"></a>
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <h5 class="background text-light text-center p-2">Contact Page</h5>
+            {% for i in messages %}
+            <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
+                {{i}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" required name="name" class="form-control" placeholder="Enter your Name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="text" required name="email" class="form-control" placeholder="Enter your Name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="text" required name="phone" class="form-control" placeholder="Enter your Name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Subject</label>
+                    <input type="text" required name="subject" class="form-control" placeholder="Enter your Name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Message</label>
+                    <textarea required name="message" rows="5" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn background text-light text-center p-3 w-100">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
