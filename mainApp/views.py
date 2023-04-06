@@ -316,7 +316,7 @@ def orderPage(Request):
         return redirect("/checkout")
 
 @login_required(login_url='/login/')
-def paymentSuccess(request, rppid, rpoid, rpsid):
+def paymentSuccess(request, rppid):
     buyer = Buyer.objects.get(username=request.user)
     check = Checkout.objects.filter(buyer=buyer)
     check = check[::-1]
